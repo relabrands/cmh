@@ -4,6 +4,35 @@ import { ChevronDown } from "lucide-react";
 // ─── Logo components — styled wordmarks matching each brand's identity ──────
 
 function Logo({ name }: { name: string }) {
+  const imageUrls: Record<string, string> = {
+    "SeNaSa": "https://www.intec.edu.do/templates/yootheme/cache/bc/Logo-SeNaSa-Variantes_Horizontal-bcfc69ec.webp",
+    "ARS Humano": "https://humanoseguros.com/wp-content/themes/humano-seguros/assets/images/logohumano.svg",
+    "ARS Primera": "https://www.arsprimera.com/_catalogs/masterpage/PrimeraARS/assets/img/logo.png",
+    "ARS Futuro": "https://www.arsfuturo.com/wp-content/uploads/2024/10/logo2-1.png",
+    "ARS GMA": "https://adimars.do/wp-content/uploads/2024/01/GMA1.png",
+    "ARS Renacer": "https://arsrenacer.com/wp-content/uploads/2023/10/logo_new-ARS.png.webp",
+    "Mapfre": "https://portal.mapfresaludars.com.do/ca/logos/AF_MAPFRE_Salud%20ARS_Mapfre_Salud%20ARS%20Horizontal%20Positivo.png",
+    "ARS Meta Salud": "https://arsmetasalud.com/img/cyan/logo.png",
+    "ARS Semma": "https://www.megacentro.com.do/content/uploads/2020/06/ARS-Semma.png",
+    "ARS Universal": "https://cdnsgu-dbcefpcpfsajcgdk.a01.azurefd.net/seguros/media/fn4p0pff/logo-seguros-universal.svg",
+    "ARS CMD": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSnT0zC8fWXo9aJ1LizQ56SHMGQ_b9n9-MskxjRY6doLw&s=10",
+    "ARS APS": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR2Ptsl17JfSuk6AUMSRCGlqZKPlrlLLkIYOAxo50oMEFHQFlV3zTJ1f2jW&s=10",
+    "ARS ASEMAP": "https://adimars.do/wp-content/uploads/2024/01/ASEMAP1.png",
+    "ARS Yunen": "https://megacentro.com.do/content/uploads/2022/08/Logo-Yunen-512x512-1.png",
+    "ARS UASD": "https://arsuasd.org/wp-content/uploads/2025/06/ARS-UASD-LOGOWEBH.png"
+  };
+
+  if (imageUrls[name]) {
+    return (
+      <img
+        src={imageUrls[name]}
+        alt={name}
+        className="h-8 w-auto object-contain max-w-[120px]"
+        loading="lazy"
+      />
+    );
+  }
+
   const logos: Record<string, JSX.Element> = {
     "ARS Humano": (
       <svg viewBox="0 0 120 40" width="100" height="34" aria-label="ARS Humano">
@@ -190,6 +219,7 @@ const AMBULATORIO: { cat: string; names: string[] }[] = [
       "ARS Humano", "ARS Primera", "SeNaSa", "ARS Universal", "ARS Reservas",
       "ARS Yunen", "ARS Renacer", "ARS CMD", "ARS Abel González",
       "ARS UASD", "ARS Banco Central", "Seguros Reservas", "Just", "Gold Med",
+      "ARS Futuro", "ARS GMA", "ARS Meta Salud", "ARS Semma", "ARS APS", "ARS ASEMAP"
     ],
   },
   {
