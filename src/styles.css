@@ -1,0 +1,129 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --color-green-deep: var(--green-deep);
+  --color-green-mid: var(--green-mid);
+  --color-lime: var(--lime);
+  --color-off-white: var(--off-white);
+  --color-cream: var(--cream);
+  --color-text-primary: var(--text-primary);
+  --color-text-muted: var(--text-muted);
+  --color-hairline: var(--hairline);
+
+  --font-display: "Instrument Serif", serif;
+  --font-sans: "Inter", sans-serif;
+}
+
+:root {
+  --radius: 0.5rem;
+
+  /* Brand — derived from logo green #408C41, kept desaturated */
+  --green-deep: #1A2E1B;
+  --green-mid: #2D5A3E;
+  --lime: #408C41;
+  --off-white: #FAFAF8;
+  --cream: #F2F1ED;
+  --text-primary: #1A1A1A;
+  --text-muted: #6E6E68;
+  --hairline: #E8E7E2;
+
+  /* shadcn tokens mapped to warm palette */
+  --background: #FAFAF8;
+  --foreground: #1A1A1A;
+  --card: #FFFFFF;
+  --card-foreground: #1A1A1A;
+  --popover: #FFFFFF;
+  --popover-foreground: #1A1A1A;
+  --primary: #1A2E1B;
+  --primary-foreground: #FFFFFF;
+  --secondary: #F2F1ED;
+  --secondary-foreground: #1A2E1B;
+  --muted: #F2F1ED;
+  --muted-foreground: #6E6E68;
+  --accent: #F2F1ED;
+  --accent-foreground: #1A2E1B;
+  --destructive: #b91c1c;
+  --destructive-foreground: #FFFFFF;
+  --border: #E8E7E2;
+  --input: #E8E7E2;
+  --ring: #1A2E1B;
+}
+
+@layer base {
+  * { border-color: var(--color-border); }
+  html { scroll-behavior: smooth; }
+  body {
+    background-color: var(--color-off-white);
+    color: var(--color-text-primary);
+    font-family: var(--font-sans);
+    font-feature-settings: "ss01", "cv11";
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    font-weight: 400;
+    letter-spacing: -0.01em;
+    line-height: 1;
+  }
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes soft-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.6; transform: scale(0.85); }
+}
+@keyframes count-up {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@utility animate-marquee { animation: marquee 40s linear infinite; }
+@utility animate-fade-up { animation: fade-up 0.6s ease-out both; }
+@utility animate-soft-float { animation: soft-float 3s ease-in-out infinite; }
+
+@utility label-eyebrow {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  color: var(--text-muted);
+}
